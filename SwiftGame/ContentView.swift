@@ -6,16 +6,14 @@
 //
 
 import SwiftUI
+import SpriteKit
+import GameKit
 
 struct ContentView: View {
+     let scene = GameScene()
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        SpriteView(scene: scene)
+            .ignoresSafeArea()
     }
 }
 

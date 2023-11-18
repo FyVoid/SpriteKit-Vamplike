@@ -14,6 +14,11 @@
 		D3044AAF2B06295200E81F59 /* SwiftGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3044AAE2B06295200E81F59 /* SwiftGameTests.swift */; };
 		D3044AB92B06295300E81F59 /* SwiftGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3044AB82B06295300E81F59 /* SwiftGameUITests.swift */; };
 		D3044ABB2B06295300E81F59 /* SwiftGameUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3044ABA2B06295300E81F59 /* SwiftGameUITestsLaunchTests.swift */; };
+		D3044AC82B062F5C00E81F59 /* PlayerCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3044AC72B062F5C00E81F59 /* PlayerCharacter.swift */; };
+		D3044ACA2B06341C00E81F59 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3044AC92B06341C00E81F59 /* GameScene.swift */; };
+		D3044ACC2B0642FC00E81F59 /* joystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3044ACB2B0642FC00E81F59 /* joystick.swift */; };
+		D3044ACE2B06471800E81F59 /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3044ACD2B06471800E81F59 /* utils.swift */; };
+		D3044AD02B07613D00E81F59 /* EnemyGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3044ACF2B07613D00E81F59 /* EnemyGenerator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +49,11 @@
 		D3044AB42B06295200E81F59 /* SwiftGameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftGameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3044AB82B06295300E81F59 /* SwiftGameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftGameUITests.swift; sourceTree = "<group>"; };
 		D3044ABA2B06295300E81F59 /* SwiftGameUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftGameUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D3044AC72B062F5C00E81F59 /* PlayerCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCharacter.swift; sourceTree = "<group>"; };
+		D3044AC92B06341C00E81F59 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		D3044ACB2B0642FC00E81F59 /* joystick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = joystick.swift; sourceTree = "<group>"; };
+		D3044ACD2B06471800E81F59 /* utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
+		D3044ACF2B07613D00E81F59 /* EnemyGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyGenerator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +108,11 @@
 				D3044A9F2B06295100E81F59 /* ContentView.swift */,
 				D3044AA12B06295200E81F59 /* Assets.xcassets */,
 				D3044AA32B06295200E81F59 /* Preview Content */,
+				D3044AC72B062F5C00E81F59 /* PlayerCharacter.swift */,
+				D3044AC92B06341C00E81F59 /* GameScene.swift */,
+				D3044ACB2B0642FC00E81F59 /* joystick.swift */,
+				D3044ACD2B06471800E81F59 /* utils.swift */,
+				D3044ACF2B07613D00E81F59 /* EnemyGenerator.swift */,
 			);
 			path = SwiftGame;
 			sourceTree = "<group>";
@@ -257,7 +272,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3044AC82B062F5C00E81F59 /* PlayerCharacter.swift in Sources */,
+				D3044AD02B07613D00E81F59 /* EnemyGenerator.swift in Sources */,
 				D3044AA02B06295100E81F59 /* ContentView.swift in Sources */,
+				D3044ACC2B0642FC00E81F59 /* joystick.swift in Sources */,
+				D3044ACE2B06471800E81F59 /* utils.swift in Sources */,
+				D3044ACA2B06341C00E81F59 /* GameScene.swift in Sources */,
 				D3044A9E2B06295100E81F59 /* SwiftGameApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
