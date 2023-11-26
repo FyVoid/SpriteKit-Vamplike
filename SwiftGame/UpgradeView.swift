@@ -6,13 +6,21 @@
 //
 
 import SwiftUI
+import SpriteKit
+
+var upgrades = [UpgradeType.fastShoot, UpgradeType.fastShoot, UpgradeType.Boom]
 
 struct UpgradeView: View {
+    @State var upgrades: [UpgradeType]
+    @ObservedObject var scene: GameScene
+    @State var selected = false
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            ForEach(0..<3) {
+                index in
+                UpgradeStack(type: upgrades[index], selected: $selected, scene: scene)
+                    .padding(5.0)
+            }
+        }
     }
-}
-
-#Preview {
-    UpgradeView()
 }

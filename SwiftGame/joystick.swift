@@ -30,8 +30,8 @@ struct Joystick {
         stickNode = SKSpriteNode(imageNamed: stickSpriteName)
         backgroundNode.zPosition = 20
         stickNode.zPosition = 21
-        backgroundNode.setScale(10)
-        stickNode.setScale(10)
+        backgroundNode.setScale(1.5)
+        stickNode.setScale(3)
         backgroundNode.alpha = 0
         stickNode.alpha = 0
         backgroundNode.position = CGPoint(x: 100, y: 100)
@@ -43,8 +43,8 @@ struct Joystick {
     mutating func appear(position: CGPoint) {
         backgroundNode.position = position
         stickNode.position = position
-        backgroundNode.alpha = 0.5
-        stickNode.alpha = 0.7
+        backgroundNode.alpha = 1
+        stickNode.alpha = 1
         appear = true
     }
     
@@ -79,5 +79,17 @@ struct Joystick {
             return CGVector()
         }
         return normDir(pointA: backgroundNode.position, pointB: stickNode.position)
+    }
+    
+    func moveBy(offset: CGPoint) {
+        backgroundNode.position = CGPoint(
+            x: backgroundNode.position.x - offset.x,
+            y: backgroundNode.position.y - offset.y
+        )
+        
+        stickNode.position = CGPoint(
+            x: stickNode.position.x - offset.x,
+            y: stickNode.position.y - offset.y
+        )
     }
 }

@@ -19,6 +19,13 @@
 		D3044ACC2B0642FC00E81F59 /* joystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3044ACB2B0642FC00E81F59 /* joystick.swift */; };
 		D3044ACE2B06471800E81F59 /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3044ACD2B06471800E81F59 /* utils.swift */; };
 		D3044AD02B07613D00E81F59 /* EnemyGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3044ACF2B07613D00E81F59 /* EnemyGenerator.swift */; };
+		D3044AD42B0B2F1100E81F59 /* explode.sks in Resources */ = {isa = PBXBuildFile; fileRef = D3044AD22B0B2F1100E81F59 /* explode.sks */; };
+		D3044AD52B0B2F1100E81F59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3044AD32B0B2F1100E81F59 /* Assets.xcassets */; };
+		D3044AD72B0B30F900E81F59 /* playerFire.sks in Resources */ = {isa = PBXBuildFile; fileRef = D3044AD62B0B30F900E81F59 /* playerFire.sks */; };
+		D34ACD562B10BE930061006D /* UpgradeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34ACD552B10BE930061006D /* UpgradeView.swift */; };
+		D34ACD5A2B10C32A0061006D /* UpgradeStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34ACD592B10C32A0061006D /* UpgradeStack.swift */; };
+		D34ACD5C2B10C3610061006D /* UpgradeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34ACD5B2B10C3610061006D /* UpgradeType.swift */; };
+		D36B4DB12B0C8351004F47AF /* break.sks in Resources */ = {isa = PBXBuildFile; fileRef = D36B4DB02B0C8351004F47AF /* break.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +61,14 @@
 		D3044ACB2B0642FC00E81F59 /* joystick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = joystick.swift; sourceTree = "<group>"; };
 		D3044ACD2B06471800E81F59 /* utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
 		D3044ACF2B07613D00E81F59 /* EnemyGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyGenerator.swift; sourceTree = "<group>"; };
+		D3044AD22B0B2F1100E81F59 /* explode.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = explode.sks; sourceTree = "<group>"; };
+		D3044AD32B0B2F1100E81F59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D3044AD62B0B30F900E81F59 /* playerFire.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = playerFire.sks; sourceTree = "<group>"; };
+		D34ACD552B10BE930061006D /* UpgradeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeView.swift; sourceTree = "<group>"; };
+		D34ACD592B10C32A0061006D /* UpgradeStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeStack.swift; sourceTree = "<group>"; };
+		D34ACD5B2B10C3610061006D /* UpgradeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeType.swift; sourceTree = "<group>"; };
+		D36B4DB02B0C8351004F47AF /* break.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = break.sks; sourceTree = "<group>"; };
+		D36B4DB42B0C8ECB004F47AF /* Z-Defender-document.markdown */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Z-Defender-document.markdown"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +119,8 @@
 		D3044A9C2B06295100E81F59 /* SwiftGame */ = {
 			isa = PBXGroup;
 			children = (
+				D36B4DB22B0C8EA0004F47AF /* Document */,
+				D3044AD12B0B2EFA00E81F59 /* particles */,
 				D3044A9D2B06295100E81F59 /* SwiftGameApp.swift */,
 				D3044A9F2B06295100E81F59 /* ContentView.swift */,
 				D3044AA12B06295200E81F59 /* Assets.xcassets */,
@@ -113,6 +130,9 @@
 				D3044ACB2B0642FC00E81F59 /* joystick.swift */,
 				D3044ACD2B06471800E81F59 /* utils.swift */,
 				D3044ACF2B07613D00E81F59 /* EnemyGenerator.swift */,
+				D34ACD552B10BE930061006D /* UpgradeView.swift */,
+				D34ACD592B10C32A0061006D /* UpgradeStack.swift */,
+				D34ACD5B2B10C3610061006D /* UpgradeType.swift */,
 			);
 			path = SwiftGame;
 			sourceTree = "<group>";
@@ -140,6 +160,33 @@
 				D3044ABA2B06295300E81F59 /* SwiftGameUITestsLaunchTests.swift */,
 			);
 			path = SwiftGameUITests;
+			sourceTree = "<group>";
+		};
+		D3044AD12B0B2EFA00E81F59 /* particles */ = {
+			isa = PBXGroup;
+			children = (
+				D3044AD22B0B2F1100E81F59 /* explode.sks */,
+				D3044AD32B0B2F1100E81F59 /* Assets.xcassets */,
+				D3044AD62B0B30F900E81F59 /* playerFire.sks */,
+				D36B4DB02B0C8351004F47AF /* break.sks */,
+			);
+			path = particles;
+			sourceTree = "<group>";
+		};
+		D36B4DB22B0C8EA0004F47AF /* Document */ = {
+			isa = PBXGroup;
+			children = (
+				D36B4DB32B0C8EA9004F47AF /* assets */,
+				D36B4DB42B0C8ECB004F47AF /* Z-Defender-document.markdown */,
+			);
+			path = Document;
+			sourceTree = "<group>";
+		};
+		D36B4DB32B0C8EA9004F47AF /* assets */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,8 +293,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3044AD72B0B30F900E81F59 /* playerFire.sks in Resources */,
 				D3044AA52B06295200E81F59 /* Preview Assets.xcassets in Resources */,
 				D3044AA22B06295200E81F59 /* Assets.xcassets in Resources */,
+				D36B4DB12B0C8351004F47AF /* break.sks in Resources */,
+				D3044AD52B0B2F1100E81F59 /* Assets.xcassets in Resources */,
+				D3044AD42B0B2F1100E81F59 /* explode.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,11 +325,14 @@
 			files = (
 				D3044AC82B062F5C00E81F59 /* PlayerCharacter.swift in Sources */,
 				D3044AD02B07613D00E81F59 /* EnemyGenerator.swift in Sources */,
+				D34ACD5A2B10C32A0061006D /* UpgradeStack.swift in Sources */,
 				D3044AA02B06295100E81F59 /* ContentView.swift in Sources */,
 				D3044ACC2B0642FC00E81F59 /* joystick.swift in Sources */,
 				D3044ACE2B06471800E81F59 /* utils.swift in Sources */,
+				D34ACD5C2B10C3610061006D /* UpgradeType.swift in Sources */,
 				D3044ACA2B06341C00E81F59 /* GameScene.swift in Sources */,
 				D3044A9E2B06295100E81F59 /* SwiftGameApp.swift in Sources */,
+				D34ACD562B10BE930061006D /* UpgradeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +496,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftGame/Preview Content\"";
+				DEVELOPMENT_TEAM = 4W9973BUXX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -454,7 +509,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = fyvoid.SwiftGame;
+				PRODUCT_BUNDLE_IDENTIFIER = "fyvoid.SwiftGame-fyvoid.com";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -470,6 +525,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftGame/Preview Content\"";
+				DEVELOPMENT_TEAM = 4W9973BUXX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -482,7 +538,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = fyvoid.SwiftGame;
+				PRODUCT_BUNDLE_IDENTIFIER = "fyvoid.SwiftGame-fyvoid.com";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

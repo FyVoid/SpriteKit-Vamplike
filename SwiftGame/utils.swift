@@ -8,6 +8,8 @@
 import Foundation
 import GameKit
 
+let pi = 3.1415926
+
 func pointDistance(pointA: CGPoint, pointB: CGPoint) -> Double {
     return sqrt(((pointA.x - pointB.x) * (pointA.x - pointB.x)) + ((pointA.y - pointB.y) * (pointA.y - pointB.y)))
 }
@@ -23,4 +25,34 @@ struct CBitmask {
     static let playerFire: UInt32 = 0b10
     static let enemy: UInt32 = 0b100
     static let protect: UInt32 = 0b1000
+}
+
+func toRadians(angle: Double) -> Double {
+    return angle / 180.0 * pi
+}
+
+func getAngle(origin: CGPoint, target: CGPoint) -> CGFloat {
+    let relativeX = target.x - origin.x
+    let relativeY = target.y - origin.y
+    let distance = pointDistance(pointA: origin, pointB: target)
+    if relativeX >= 0 && relativeY >= 0 {
+        return acos(relativeY / distance)
+    } else if relativeX > 0 && relativeY < 0 {
+        return pi - acos(-relativeY / distance)
+    } else if relativeX <= 0 && relativeY <= 0 {
+        return pi + acos(-relativeY / distance)
+    } else {
+        return -acos(relativeY / distance)
+    }
+}
+
+func getRotation2Target(origin: CGPoint, target: CGPoint) -> CGFloat {
+    return toRadians(angle: 180) - getAngle(origin: origin, target: target)
+}
+
+func getRelativePosition(origin: CGPoint, offset: CGPoint, target: CGPoint) -> CGPoint {
+    return CGPoint(
+        x: target.x + origin.x - offset.x,
+        y: target.y + origin.y - offset.y
+    )
 }

@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+enum UpgradeType: String, CaseIterable {
+    case addBullet = "shoot one more bullet from your front"
+    case backBullet = "shoot one more bullet from your back"
+    case Boom = "throw one more boom to your enemies"
+    case fastShoot = "shoot all your weapons faster"
+}
