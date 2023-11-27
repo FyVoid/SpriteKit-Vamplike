@@ -22,19 +22,7 @@ struct ContentView: View {
             
             // UI
             VStack {
-                VStack {
-                    HStack {
-                        Text("HP: \(scene.player.hp)")
-                            .font(.title)
-                            .foregroundColor(Color.red)
-                            .padding(.horizontal, 10.0)
-                        Text("Zomblie Killed: \(scene.zombieKilled)")
-                            .font(.title)
-                            .foregroundColor(Color.red)
-                            .padding(.horizontal, 10.0)
-                    }
-                    Spacer()
-                }
+                Hud(hp: $scene.player.hp, zombieKilled: $scene.zombieKilled, level: $scene.player.level)
                 if scene.showUpgradeView {
                     UpgradeView(upgrades: scene.upgrades, scene: scene)
                 }

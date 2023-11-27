@@ -32,6 +32,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ObservableObject {
     @Published var zombieKilled = 0
     @Published var upgrades: [UpgradeType] = []
     @Published var showUpgradeView = false
+    @Published var upgradeExp: Int = 0
     
     @Published var gameEnd = false
     
@@ -145,14 +146,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ObservableObject {
     func incretKill() {
         zombieKilled += 1
         
-        if Int(sqrt(Double(zombieKilled))) > player.level {
+        // upgrade player ability
+        if zombieKilled >= getUpgradeExp(level: player.level) {
             player.level += 1
             upgrades = player.getUpgrade()
             invalidateTimers()
             scene?.isPaused = true
             showUpgradeView = true
+            upgradeExp = getUpgradeExp(level: player.level)
         }
     }
+    
+//    func getUpgradeExp(level: Int) -> Int {
+//        let x = Double(level)
+//        return Int(x * x + 3 * x - 1)
+//    }
     
     func upgrade(type: UpgradeType) {
         player.upgrade(type: type)
@@ -222,6 +230,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ObservableObject {
         enemyGenerator.generateCount = 0
         
         zombieKilled = 0
+        upgradeExp = getUpgradeExp(level: player.level)
         gameEnd = false
     }
     

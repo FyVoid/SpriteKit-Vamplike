@@ -25,6 +25,7 @@
 		D34ACD562B10BE930061006D /* UpgradeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34ACD552B10BE930061006D /* UpgradeView.swift */; };
 		D34ACD5A2B10C32A0061006D /* UpgradeStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34ACD592B10C32A0061006D /* UpgradeStack.swift */; };
 		D34ACD5C2B10C3610061006D /* UpgradeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34ACD5B2B10C3610061006D /* UpgradeType.swift */; };
+		D34ACD5E2B1435250061006D /* Hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34ACD5D2B1435250061006D /* Hud.swift */; };
 		D36B4DB12B0C8351004F47AF /* break.sks in Resources */ = {isa = PBXBuildFile; fileRef = D36B4DB02B0C8351004F47AF /* break.sks */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,7 @@
 		D34ACD552B10BE930061006D /* UpgradeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeView.swift; sourceTree = "<group>"; };
 		D34ACD592B10C32A0061006D /* UpgradeStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeStack.swift; sourceTree = "<group>"; };
 		D34ACD5B2B10C3610061006D /* UpgradeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradeType.swift; sourceTree = "<group>"; };
+		D34ACD5D2B1435250061006D /* Hud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hud.swift; sourceTree = "<group>"; };
 		D36B4DB02B0C8351004F47AF /* break.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = break.sks; sourceTree = "<group>"; };
 		D36B4DB42B0C8ECB004F47AF /* Z-Defender-document.markdown */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Z-Defender-document.markdown"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,6 +135,7 @@
 				D34ACD552B10BE930061006D /* UpgradeView.swift */,
 				D34ACD592B10C32A0061006D /* UpgradeStack.swift */,
 				D34ACD5B2B10C3610061006D /* UpgradeType.swift */,
+				D34ACD5D2B1435250061006D /* Hud.swift */,
 			);
 			path = SwiftGame;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D34ACD5E2B1435250061006D /* Hud.swift in Sources */,
 				D3044AC82B062F5C00E81F59 /* PlayerCharacter.swift in Sources */,
 				D3044AD02B07613D00E81F59 /* EnemyGenerator.swift in Sources */,
 				D34ACD5A2B10C32A0061006D /* UpgradeStack.swift in Sources */,

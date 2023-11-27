@@ -56,3 +56,16 @@ func getRelativePosition(origin: CGPoint, offset: CGPoint, target: CGPoint) -> C
         y: target.y + origin.y - offset.y
     )
 }
+
+func pointAdd(_ a: CGPoint, _ b: CGPoint) -> CGPoint {
+    return CGPoint(x: a.x + b.x, y: a.y + b.y)
+}
+
+func getUpgradeExp(level: Int) -> Int {
+    let x = Double(level)
+    return Int(x * x + 3 * x)
+}
+
+func pointSub(_ a: CGPoint, _ b: CGPoint) -> CGPoint {
+    return CGPoint(x: a.x - b.x, y: a.y - b.y)
+}

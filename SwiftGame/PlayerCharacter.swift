@@ -74,16 +74,30 @@ class PlayerCharacter {
     }
     
     @objc func fire(scene: SKScene, target: CGPoint) {
+        let fireTarget = pointAdd(target, pointSub(target, playerNode.position))
+        
         for _ in 0..<fireCount {
             let beginPos = playerNode.position
-            let endPos = CGPoint(x: target.x + randNum() * 50 * Double(fireCount), y: target.y + randNum() * 50 * Double(fireCount))
+            var endPos: CGPoint
+            if fireCount < 10 {
+                endPos = CGPoint(x: fireTarget.x + randNum() * 50 * Double(fireCount), y: fireTarget.y + randNum() * 50 * Double(fireCount))
+            } else {
+                endPos = CGPoint(x: fireTarget.x + randNum() * 500, y: fireTarget.y + randNum() * 500)
+            }
             scene.addChild(genFire(beginPos: beginPos, endPos: endPos))
         }
         
         for _ in 0..<backFireCount {
             let beginPos = playerNode.position
-            let backPos = CGPoint(x: target.x + 2 * (beginPos.x - target.x), y: target.y + 2 * (beginPos.y - target.y))
-            scene.addChild(genFire(beginPos: beginPos, endPos: CGPoint(x: backPos.x + randNum() * 50 * Double(backFireCount), y: backPos.y + randNum() * 50 * Double(backFireCount))))
+            let backPos = CGPoint(x: fireTarget.x + 2 * (beginPos.x - fireTarget.x), y: fireTarget.y + 2 * (beginPos.y - fireTarget.y))
+            var endPos: CGPoint
+            if backFireCount < 10 {
+                endPos = CGPoint(x: backPos.x + randNum() * 50 * Double(backFireCount), y: backPos.y + randNum() * 50 * Double(backFireCount))
+            } else {
+                endPos = CGPoint(x: backPos.x + randNum() * 500, y: backPos.y + randNum() * 500)
+            }
+            
+            scene.addChild(genFire(beginPos: beginPos, endPos: endPos))
         }
         
         playerNode.zRotation = getRotation2Target(origin: playerNode.position, target: target)
@@ -113,7 +127,7 @@ class PlayerCharacter {
         fireNode.physicsBody?.contactTestBitMask = CBitmask.enemy
         fireNode.physicsBody?.collisionBitMask = CBitmask.enemy
         
-        let moveAction = SKAction.move(to: endPos, duration: 0.5)
+        let moveAction = SKAction.move(to: endPos, duration: 0.8)
         let delateAction = SKAction.removeFromParent()
         let combinedAction = SKAction.sequence([moveAction, delateAction])
         
@@ -148,6 +162,10 @@ class PlayerCharacter {
             fireCount += 1
         case .fastShoot:
             fireInterval *= 0.8
+        case .moreHealth:
+            hp += 2
+        case .moveFaster:
+            velocity *= 1.2
         }
     }
     

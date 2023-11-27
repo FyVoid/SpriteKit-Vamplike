@@ -8,11 +8,55 @@
 import SwiftUI
 
 struct Hud: View {
+    @Binding var hp: Int
+    @Binding var zombieKilled: Int
+    @Binding var level: Int
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            HStack {
+                Text("HP: \(hp)")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.red)
+                    .padding(.horizontal, 10.0)
+                Text("Zomblie Killed: \(zombieKilled)")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.green)
+                    .padding(.horizontal, 10.0)
+            }
+            .shadow(radius: 10)
+            ProgressView("Upgrade", value: Double(zombieKilled - getUpgradeExp(level: level - 1)) * 100 / Double(getUpgradeExp(level: level) - getUpgradeExp(level: level - 1)), total: 100)
+                .progressViewStyle(ExpProgressViewStyle())
+                .font(.title)
+                .opacity(0.8)
+                .frame(height: 40)
+                .padding(.horizontal, 40)
+            Spacer()
+        }
     }
 }
 
-#Preview {
-    Hud()
+struct ExpProgressViewStyle: ProgressViewStyle{
+    let foregroundColor:Color
+    let backgroundColor:Color
+    init(foregroundColor:Color = .yellow, backgroundColor:Color = .purple){
+        self.foregroundColor = foregroundColor
+        self.backgroundColor = backgroundColor
+    }
+    func makeBody(configuration: Configuration) -> some View {
+        GeometryReader{ proxy in
+            ZStack(alignment:.topLeading){
+            backgroundColor
+            Rectangle()
+                .fill(foregroundColor)
+                .frame(width:proxy.size.width * CGFloat(configuration.fractionCompleted ?? 0.0))
+            }.clipShape(RoundedRectangle(cornerRadius: 10))
+            .overlay(
+                    configuration.label
+                        .foregroundColor(.orange)
+            )
+        }
+    }
 }
+
