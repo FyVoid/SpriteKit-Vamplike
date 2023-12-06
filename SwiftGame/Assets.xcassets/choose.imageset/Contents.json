@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "F6227CCD-6ADA-4141-9035-D40492585F27_1_201_a.jpeg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
