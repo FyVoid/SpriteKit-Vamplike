@@ -175,6 +175,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ObservableObject {
         showUpgradeView = false
     }
     
+    func pause() {
+        scene?.isPaused = true
+        invalidateTimers()
+    }
+    
+    func unPause() {
+        fireTimer = .scheduledTimer(timeInterval: player.fireInterval, target: self, selector: #selector(playerFire), userInfo: nil, repeats: true)
+        enemyGenerateTimer = .scheduledTimer(timeInterval: enemyGenerateInterval, target: self, selector: #selector(genEnemy), userInfo: nil, repeats: true)
+        isPaused = false
+    }
+    
     @objc func playerFire() {
         fireTarget = enemyGenerator.getClosestEnemyPosition(position: player.playerNode.position)
         if fireTarget.x == 0 && fireTarget.y == 0 {
