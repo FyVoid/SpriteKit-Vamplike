@@ -11,6 +11,7 @@ struct Hud: View {
     @Binding var hp: Int
     @Binding var zombieKilled: Int
     @Binding var level: Int
+    @Binding var upgradeAlpha: Double
     var body: some View {
         VStack {
             HStack {
@@ -26,10 +27,10 @@ struct Hud: View {
                     .padding(.horizontal, 10.0)
             }
             .shadow(radius: 10)
-            ProgressView("Upgrade", value: Double(zombieKilled - getUpgradeExp(level: level - 1)) * 100 / Double(getUpgradeExp(level: level) - getUpgradeExp(level: level - 1)), total: 100)
+            ProgressView("Upgrade", value: Double(zombieKilled - getUpgradeExp(level: level - 1, alpha: upgradeAlpha)) * 100 / Double(getUpgradeExp(level: level, alpha: upgradeAlpha) - getUpgradeExp(level: level - 1, alpha:  upgradeAlpha)), total: 100)
                 .progressViewStyle(ExpProgressViewStyle())
                 .font(.title)
-                .opacity(0.8)
+                .opacity(0.7)
                 .frame(height: 40)
                 .padding(.horizontal, 40)
             Spacer()
@@ -40,7 +41,7 @@ struct Hud: View {
 struct ExpProgressViewStyle: ProgressViewStyle{
     let foregroundColor:Color
     let backgroundColor:Color
-    init(foregroundColor:Color = .yellow, backgroundColor:Color = .purple){
+    init(foregroundColor:Color = .yellow, backgroundColor:Color = .clear){
         self.foregroundColor = foregroundColor
         self.backgroundColor = backgroundColor
     }

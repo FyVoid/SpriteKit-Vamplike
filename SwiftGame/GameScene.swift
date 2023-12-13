@@ -28,13 +28,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ObservableObject {
     var enemyGenerator = EnemyGenerator()
     var enemyGenerateTimer = Timer()
     var enemyGenerateInterval = 3.0
+    var enemyGenerateAlpha = 1.0
     
     @Published var zombieKilled = 0
     @Published var upgrades: [UpgradeType] = []
     @Published var showUpgradeView = false
     @Published var upgradeExp: Int = 0
+    @Published var upgradeAlpha = 1.0
     
     @Published var gameEnd = false
+    
+    var config: [String: Double] = [:]
     
     override func didMove(to view: SKView) {
         physicsWorld.contactDelegate = self
@@ -136,24 +140,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ObservableObject {
         
         incretKill()
         
-        enemyGenerator.generateCount = zombieKilled / 10 + enemyGenerator.baseGenerateCount
+        updateEnemyGenerator()
     }
     
     func updateEnemyGenerator() {
-        enemyGenerator.generateCount = Int(sqrt(Double(zombieKilled)) / 2) + enemyGenerator.baseGenerateCount
+        enemyGenerator.generateCount = zombieKilled / 3 + Int(sqrt(Double(zombieKilled))) + enemyGenerator.baseGenerateCount
+        enemyGenerator.generateCount = Int(enemyGenerateAlpha * Double(enemyGenerator.generateCount))
     }
     
     func incretKill() {
         zombieKilled += 1
         
         // upgrade player ability
-        if zombieKilled >= getUpgradeExp(level: player.level) {
+        if zombieKilled >= getUpgradeExp(level: player.level, alpha: upgradeAlpha) {
             player.level += 1
             upgrades = player.getUpgrade()
             invalidateTimers()
             scene?.isPaused = true
             showUpgradeView = true
-            upgradeExp = getUpgradeExp(level: player.level)
+            upgradeExp = getUpgradeExp(level: player.level, alpha: upgradeAlpha)
         }
     }
     
@@ -200,13 +205,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ObservableObject {
     }
     
     func checkGameEnd() {
+        // gameEnd = true
         if player.hp <= 0 {
             gameEnd = true
             isPaused = true
         }
     }
     
+    func loadConfig(config: [String: Double]) {
+        for type in config.keys {
+            if type == "enemyGenerateAlpha" {
+                enemyGenerateAlpha = config[type]!
+            }
+            else if type == "upgradeAlpha" {
+                upgradeAlpha = config[type]!
+            }
+        }
+    }
+    
     func setBegin() {
+        loadConfig(config: config)
+        
         scene?.size = CGSize(width: sceneX, height: sceneY)
         background.position = CGPoint(x: size.width / 2, y: size.height / 2)
         background.setScale(1)
@@ -230,7 +249,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ObservableObject {
         enemyGenerator.generateCount = 0
         
         zombieKilled = 0
-        upgradeExp = getUpgradeExp(level: player.level)
+        upgradeExp = getUpgradeExp(level: player.level, alpha: upgradeAlpha)
         gameEnd = false
     }
     
@@ -268,5 +287,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ObservableObject {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         joystick.disappear()
     }
+    
+    
     
 }

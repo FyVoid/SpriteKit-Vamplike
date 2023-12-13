@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct EnterButtonView: View {
+    @State var text = ""
+    @Binding var pressed: Bool
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+        
+            
     }
-}
-
-#Preview {
-    EnterButtonView()
 }

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D3044A9E2B06295100E81F59 /* SwiftGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3044A9D2B06295100E81F59 /* SwiftGameApp.swift */; };
-		D3044AA02B06295100E81F59 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3044A9F2B06295100E81F59 /* ContentView.swift */; };
+		D3044AA02B06295100E81F59 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3044A9F2B06295100E81F59 /* GameView.swift */; };
 		D3044AA22B06295200E81F59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3044AA12B06295200E81F59 /* Assets.xcassets */; };
 		D3044AA52B06295200E81F59 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3044AA42B06295200E81F59 /* Preview Assets.xcassets */; };
 		D3044AAF2B06295200E81F59 /* SwiftGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3044AAE2B06295200E81F59 /* SwiftGameTests.swift */; };
@@ -27,6 +27,9 @@
 		D34ACD5C2B10C3610061006D /* UpgradeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34ACD5B2B10C3610061006D /* UpgradeType.swift */; };
 		D34ACD5E2B1435250061006D /* Hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34ACD5D2B1435250061006D /* Hud.swift */; };
 		D36B4DB12B0C8351004F47AF /* break.sks in Resources */ = {isa = PBXBuildFile; fileRef = D36B4DB02B0C8351004F47AF /* break.sks */; };
+		D3A738212B201F9700025BF3 /* EnterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A738202B201F9700025BF3 /* EnterView.swift */; };
+		D3A738262B20687B00025BF3 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A738252B20687B00025BF3 /* HelpView.swift */; };
+		D3A738282B2078F100025BF3 /* OptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A738272B2078F100025BF3 /* OptionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +52,7 @@
 /* Begin PBXFileReference section */
 		D3044A9A2B06295100E81F59 /* SwiftGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3044A9D2B06295100E81F59 /* SwiftGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftGameApp.swift; sourceTree = "<group>"; };
-		D3044A9F2B06295100E81F59 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D3044A9F2B06295100E81F59 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		D3044AA12B06295200E81F59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3044AA42B06295200E81F59 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D3044AAA2B06295200E81F59 /* SwiftGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +74,9 @@
 		D34ACD5D2B1435250061006D /* Hud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hud.swift; sourceTree = "<group>"; };
 		D36B4DB02B0C8351004F47AF /* break.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = break.sks; sourceTree = "<group>"; };
 		D36B4DB42B0C8ECB004F47AF /* Z-Defender-document.markdown */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Z-Defender-document.markdown"; sourceTree = "<group>"; };
+		D3A738202B201F9700025BF3 /* EnterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterView.swift; sourceTree = "<group>"; };
+		D3A738252B20687B00025BF3 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
+		D3A738272B2078F100025BF3 /* OptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +130,7 @@
 				D36B4DB22B0C8EA0004F47AF /* Document */,
 				D3044AD12B0B2EFA00E81F59 /* particles */,
 				D3044A9D2B06295100E81F59 /* SwiftGameApp.swift */,
-				D3044A9F2B06295100E81F59 /* ContentView.swift */,
+				D3044A9F2B06295100E81F59 /* GameView.swift */,
 				D3044AA12B06295200E81F59 /* Assets.xcassets */,
 				D3044AA32B06295200E81F59 /* Preview Content */,
 				D3044AC72B062F5C00E81F59 /* PlayerCharacter.swift */,
@@ -136,6 +142,9 @@
 				D34ACD592B10C32A0061006D /* UpgradeStack.swift */,
 				D34ACD5B2B10C3610061006D /* UpgradeType.swift */,
 				D34ACD5D2B1435250061006D /* Hud.swift */,
+				D3A738202B201F9700025BF3 /* EnterView.swift */,
+				D3A738252B20687B00025BF3 /* HelpView.swift */,
+				D3A738272B2078F100025BF3 /* OptionView.swift */,
 			);
 			path = SwiftGame;
 			sourceTree = "<group>";
@@ -327,16 +336,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				D34ACD5E2B1435250061006D /* Hud.swift in Sources */,
+				D3A738262B20687B00025BF3 /* HelpView.swift in Sources */,
 				D3044AC82B062F5C00E81F59 /* PlayerCharacter.swift in Sources */,
 				D3044AD02B07613D00E81F59 /* EnemyGenerator.swift in Sources */,
 				D34ACD5A2B10C32A0061006D /* UpgradeStack.swift in Sources */,
-				D3044AA02B06295100E81F59 /* ContentView.swift in Sources */,
+				D3044AA02B06295100E81F59 /* GameView.swift in Sources */,
 				D3044ACC2B0642FC00E81F59 /* joystick.swift in Sources */,
+				D3A738282B2078F100025BF3 /* OptionView.swift in Sources */,
 				D3044ACE2B06471800E81F59 /* utils.swift in Sources */,
 				D34ACD5C2B10C3610061006D /* UpgradeType.swift in Sources */,
 				D3044ACA2B06341C00E81F59 /* GameScene.swift in Sources */,
 				D3044A9E2B06295100E81F59 /* SwiftGameApp.swift in Sources */,
 				D34ACD562B10BE930061006D /* UpgradeView.swift in Sources */,
+				D3A738212B201F9700025BF3 /* EnterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

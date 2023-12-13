@@ -61,9 +61,9 @@ func pointAdd(_ a: CGPoint, _ b: CGPoint) -> CGPoint {
     return CGPoint(x: a.x + b.x, y: a.y + b.y)
 }
 
-func getUpgradeExp(level: Int) -> Int {
+func getUpgradeExp(level: Int, alpha: Double) -> Int {
     let x = Double(level)
-    return Int(x * x + 3 * x)
+    return Int(alpha * (x * x + 3 * x))
 }
 
 func pointSub(_ a: CGPoint, _ b: CGPoint) -> CGPoint {
