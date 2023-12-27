@@ -20,7 +20,7 @@ struct UpgradeStack: View {
                 .fontWeight(.heavy)
             Spacer()
                 .frame(height: 10.0)
-            Text("Select")
+            Text("选择")
             .font(.title3)
             .fontWeight(.heavy)
             .foregroundColor(.red)

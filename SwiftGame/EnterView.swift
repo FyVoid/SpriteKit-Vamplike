@@ -32,7 +32,7 @@ struct EnterView: View {
                         NavigationLink(destination: HelpView(pages: pages), isActive: $showHelp) {
                             EmptyView()
                         }
-                        NavigationLink(destination: OptionView(config: $config), isActive: $showOptions) {
+                        NavigationLink(destination: OptionView(config: $config, showOptions: $showOptions), isActive: $showOptions) {
                             EmptyView()
                         }
                         Text("Z Defender")
@@ -43,7 +43,7 @@ struct EnterView: View {
                         Spacer()
                             .frame(height: 100.0)
                         
-                        Button("Start") {
+                        Button("开始!") {
                             start = true
                         }
                         .font(.title)
@@ -56,7 +56,7 @@ struct EnterView: View {
                         Spacer()
                             .frame(height: 30)
                         
-                        Button("Options") {
+                        Button("设置") {
                             showOptions.toggle()
                         }
                         .font(.title)
@@ -69,7 +69,7 @@ struct EnterView: View {
                         Spacer()
                             .frame(height: 30)
                         
-                        Button("Help") {
+                        Button("帮助") {
                             showHelp.toggle()
                         }
                         .font(.title)

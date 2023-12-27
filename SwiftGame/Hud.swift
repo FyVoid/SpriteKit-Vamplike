@@ -15,19 +15,19 @@ struct Hud: View {
     var body: some View {
         VStack {
             HStack {
-                Text("HP: \(hp)")
+                Text("生命值: \(hp)")
                     .font(.title)
                     .fontWeight(.bold)
                     .foregroundColor(Color.red)
                     .padding(.horizontal, 10.0)
-                Text("Zomblie Killed: \(zombieKilled)")
+                Text("击杀数: \(zombieKilled)")
                     .font(.title)
                     .fontWeight(.bold)
                     .foregroundColor(Color.green)
                     .padding(.horizontal, 10.0)
             }
             .shadow(radius: 10)
-            ProgressView("Upgrade", value: Double(zombieKilled - getUpgradeExp(level: level - 1, alpha: upgradeAlpha)) * 100 / Double(getUpgradeExp(level: level, alpha: upgradeAlpha) - getUpgradeExp(level: level - 1, alpha:  upgradeAlpha)), total: 100)
+            ProgressView("升级", value: Double(zombieKilled - getUpgradeExp(level: level - 1, alpha: upgradeAlpha)) * 100 / Double(getUpgradeExp(level: level, alpha: upgradeAlpha) - getUpgradeExp(level: level - 1, alpha:  upgradeAlpha)), total: 100)
                 .progressViewStyle(ExpProgressViewStyle())
                 .font(.title)
                 .opacity(0.7)

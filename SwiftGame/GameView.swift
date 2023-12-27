@@ -27,30 +27,42 @@ struct GameView: View {
                 .onAppear {
                     scene.config = config
                 }
-                .opacity(paused || scene.gameEnd ? 0.3 : 1.0)
+                .opacity(paused || scene.gameEnd || scene.gameFinish ? 0.3 : 1.0)
             
             // UI
             VStack {
-                if !(paused || scene.gameEnd) {
+                if !(paused || scene.gameEnd || scene.gameFinish) {
                     Hud(hp: $scene.player.hp, zombieKilled: $scene.zombieKilled, level: $scene.player.level, upgradeAlpha: $scene.upgradeAlpha)
                 }
                 if scene.showUpgradeView {
                     UpgradeView(upgrades: scene.upgrades, scene: scene)
                 }
                 
-                if !(paused || scene.gameEnd) {
+                if !(paused || scene.gameEnd || scene.gameFinish) {
                     HStack {
                         Spacer()
-                        Button("Pause") {
-                            paused.toggle()
-                            scene.pause()
+                        HStack {
+                            Button("自动升级") {
+                                scene.autoUpgrade.toggle()
+                            }
+                            .font(.title2)
+                            .frame(width: 160, height: 40)
+                            .background(.gray)
+                            .cornerRadius(10)
+                            .shadow(radius: 10)
+                            .foregroundColor(scene.autoUpgrade ? .red : .black)
+                            
+                            Button("暂停") {
+                                paused.toggle()
+                                scene.pause()
+                            }
+                            .font(.title2)
+                            .frame(width: 80, height: 40)
+                            .background(.gray)
+                            .cornerRadius(10)
+                            .shadow(radius: 10)
+                            .foregroundColor(.black)
                         }
-                        .font(.title2)
-                        .frame(width: 60, height: 40)
-                        .background(.gray)
-                        .cornerRadius(10)
-                        .shadow(radius: 10)
-                        .foregroundColor(.black)
                     }
                 }
             }
@@ -66,7 +78,7 @@ struct GameView: View {
                     Spacer()
                         .frame(height: 50)
                     
-                    Button("Continue") {
+                    Button("继续游戏") {
                         paused.toggle()
                         scene.unPause()
                     }
@@ -80,7 +92,7 @@ struct GameView: View {
                     Spacer()
                         .frame(height: 30)
                     
-                    Button("Restart") {
+                    Button("重新开始") {
                         scene.restart()
                         paused.toggle()
                     }
@@ -94,7 +106,7 @@ struct GameView: View {
                     Spacer()
                         .frame(height: 30)
                     
-                    Button("Back to menu") {
+                    Button("返回标题") {
                         start.toggle()
                     }
                     .font(.title)
@@ -109,7 +121,7 @@ struct GameView: View {
             
             if scene.gameEnd {
                 VStack {
-                    Button("Replay!") {
+                    Button("重来!") {
                         scene.restart()
                     }
                     .font(.title)
@@ -122,7 +134,7 @@ struct GameView: View {
                     Spacer()
                         .frame(height: 30)
                     
-                    Button("Back to menu") {
+                    Button("返回标题") {
                         start.toggle()
                     }
                     .font(.title)
@@ -141,6 +153,48 @@ struct GameView: View {
                 .cornerRadius(10)
                 .shadow(radius: 10)
 
+            }
+            
+            if scene.gameFinish {
+                VStack {
+                    Text("你已经击杀了1000个敌人，坚持到了救援到达！")
+                    .font(.title)
+                    .frame(width: 300, height: 140)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+                    .shadow(radius: 10)
+                    
+                    Button("重来!") {
+                        scene.restart()
+                    }
+                    .font(.title)
+                    .frame(width: 300, height: 60)
+                    .background(.red)
+                    .cornerRadius(10)
+                    .shadow(radius: 10)
+                    .foregroundColor(.black)
+                    
+                    Spacer()
+                        .frame(height: 30)
+                    
+                    Button("返回标题") {
+                        start.toggle()
+                    }
+                    .font(.title)
+                    .frame(width: 300, height: 60)
+                    .background(.red)
+                    .cornerRadius(10)
+                    .shadow(radius: 10)
+                    .foregroundColor(.black)
+                    
+                    Spacer()
+                        .frame(height: 30)
+                }
+                .frame(width: .infinity, height: .infinity)
+                .opacity(0.8)
+                .foregroundColor(.red)
+                .cornerRadius(10)
+                .shadow(radius: 10)
             }
                 
         }

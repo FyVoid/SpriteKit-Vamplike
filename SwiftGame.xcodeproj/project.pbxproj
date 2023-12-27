@@ -27,6 +27,11 @@
 		D34ACD5C2B10C3610061006D /* UpgradeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34ACD5B2B10C3610061006D /* UpgradeType.swift */; };
 		D34ACD5E2B1435250061006D /* Hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34ACD5D2B1435250061006D /* Hud.swift */; };
 		D36B4DB12B0C8351004F47AF /* break.sks in Resources */ = {isa = PBXBuildFile; fileRef = D36B4DB02B0C8351004F47AF /* break.sks */; };
+		D39DDCD62B32C6FA00A6C7FB /* evolution.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D39DDCD52B32C6FA00A6C7FB /* evolution.mp3 */; };
+		D39DDCD82B32C70500A6C7FB /* scifi.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D39DDCD72B32C70500A6C7FB /* scifi.mp3 */; };
+		D39DDCDA2B32C7CA00A6C7FB /* 8bit_shoot5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D39DDCD92B32C7CA00A6C7FB /* 8bit_shoot5.mp3 */; };
+		D39DDCDC2B32C96C00A6C7FB /* mini_bomb1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D39DDCDB2B32C96C00A6C7FB /* mini_bomb1.mp3 */; };
+		D39DDCDE2B32C97700A6C7FB /* small_explosion3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D39DDCDD2B32C97700A6C7FB /* small_explosion3.mp3 */; };
 		D3A738212B201F9700025BF3 /* EnterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A738202B201F9700025BF3 /* EnterView.swift */; };
 		D3A738262B20687B00025BF3 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A738252B20687B00025BF3 /* HelpView.swift */; };
 		D3A738282B2078F100025BF3 /* OptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A738272B2078F100025BF3 /* OptionView.swift */; };
@@ -74,6 +79,11 @@
 		D34ACD5D2B1435250061006D /* Hud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hud.swift; sourceTree = "<group>"; };
 		D36B4DB02B0C8351004F47AF /* break.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = break.sks; sourceTree = "<group>"; };
 		D36B4DB42B0C8ECB004F47AF /* Z-Defender-document.markdown */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Z-Defender-document.markdown"; sourceTree = "<group>"; };
+		D39DDCD52B32C6FA00A6C7FB /* evolution.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = evolution.mp3; sourceTree = "<group>"; };
+		D39DDCD72B32C70500A6C7FB /* scifi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scifi.mp3; sourceTree = "<group>"; };
+		D39DDCD92B32C7CA00A6C7FB /* 8bit_shoot5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 8bit_shoot5.mp3; sourceTree = "<group>"; };
+		D39DDCDB2B32C96C00A6C7FB /* mini_bomb1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mini_bomb1.mp3; sourceTree = "<group>"; };
+		D39DDCDD2B32C97700A6C7FB /* small_explosion3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = small_explosion3.mp3; sourceTree = "<group>"; };
 		D3A738202B201F9700025BF3 /* EnterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterView.swift; sourceTree = "<group>"; };
 		D3A738252B20687B00025BF3 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		D3A738272B2078F100025BF3 /* OptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionView.swift; sourceTree = "<group>"; };
@@ -127,6 +137,7 @@
 		D3044A9C2B06295100E81F59 /* SwiftGame */ = {
 			isa = PBXGroup;
 			children = (
+				D39DDCD42B32C6EB00A6C7FB /* Audio */,
 				D36B4DB22B0C8EA0004F47AF /* Document */,
 				D3044AD12B0B2EFA00E81F59 /* particles */,
 				D3044A9D2B06295100E81F59 /* SwiftGameApp.swift */,
@@ -199,6 +210,18 @@
 			children = (
 			);
 			path = assets;
+			sourceTree = "<group>";
+		};
+		D39DDCD42B32C6EB00A6C7FB /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				D39DDCDB2B32C96C00A6C7FB /* mini_bomb1.mp3 */,
+				D39DDCDD2B32C97700A6C7FB /* small_explosion3.mp3 */,
+				D39DDCD92B32C7CA00A6C7FB /* 8bit_shoot5.mp3 */,
+				D39DDCD52B32C6FA00A6C7FB /* evolution.mp3 */,
+				D39DDCD72B32C70500A6C7FB /* scifi.mp3 */,
+			);
+			path = Audio;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,11 +329,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3044AD72B0B30F900E81F59 /* playerFire.sks in Resources */,
+				D39DDCDC2B32C96C00A6C7FB /* mini_bomb1.mp3 in Resources */,
 				D3044AA52B06295200E81F59 /* Preview Assets.xcassets in Resources */,
+				D39DDCD62B32C6FA00A6C7FB /* evolution.mp3 in Resources */,
+				D39DDCDA2B32C7CA00A6C7FB /* 8bit_shoot5.mp3 in Resources */,
 				D3044AA22B06295200E81F59 /* Assets.xcassets in Resources */,
 				D36B4DB12B0C8351004F47AF /* break.sks in Resources */,
+				D39DDCD82B32C70500A6C7FB /* scifi.mp3 in Resources */,
 				D3044AD52B0B2F1100E81F59 /* Assets.xcassets in Resources */,
 				D3044AD42B0B2F1100E81F59 /* explode.sks in Resources */,
+				D39DDCDE2B32C97700A6C7FB /* small_explosion3.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

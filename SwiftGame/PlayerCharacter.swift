@@ -127,9 +127,10 @@ class PlayerCharacter {
         fireNode.physicsBody?.contactTestBitMask = CBitmask.enemy
         fireNode.physicsBody?.collisionBitMask = CBitmask.enemy
         
+        let soundAction = SKAction.playSoundFileNamed("8bit_shoot5.mp3", waitForCompletion: false)
         let moveAction = SKAction.move(to: endPos, duration: 0.8)
         let delateAction = SKAction.removeFromParent()
-        let combinedAction = SKAction.sequence([moveAction, delateAction])
+        let combinedAction = SKAction.sequence([soundAction, moveAction, delateAction])
         
         fireNode.run(combinedAction)
         
@@ -158,8 +159,6 @@ class PlayerCharacter {
             fireCount += 1
         case .backBullet:
             backFireCount += 1
-        case .Boom:
-            fireCount += 1
         case .fastShoot:
             fireInterval *= 0.8
         case .moreHealth:

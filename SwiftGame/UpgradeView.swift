@@ -8,7 +8,6 @@
 import SwiftUI
 import SpriteKit
 
-var upgrades = [UpgradeType.fastShoot, UpgradeType.fastShoot, UpgradeType.Boom]
 
 struct UpgradeView: View {
     @State var upgrades: [UpgradeType]

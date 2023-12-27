@@ -25,10 +25,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ObservableObject {
     var fireTarget = CGPoint(x: 114, y: 514)
     var fireTimer = Timer()
     
+    var soundNode = SKNode()
+    
     var enemyGenerator = EnemyGenerator()
     var enemyGenerateTimer = Timer()
     var enemyGenerateInterval = 3.0
     var enemyGenerateAlpha = 1.0
+    
+    var infiniteMode = false
+    
+    @Published var autoUpgrade = false
     
     @Published var zombieKilled = 0
     @Published var upgrades: [UpgradeType] = []
@@ -36,6 +42,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ObservableObject {
     @Published var upgradeExp: Int = 0
     @Published var upgradeAlpha = 1.0
     
+    @Published var gameFinish = false
     @Published var gameEnd = false
     
     var config: [String: Double] = [:]
@@ -115,6 +122,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ObservableObject {
     
     func enemyHitPlayer(enemyNode: SKSpriteNode) {
         player.hp -= 1
+        player.playerNode.run(SKAction.playSoundFileNamed("small_explosion3.mp3", waitForCompletion: false))
         enemyNode.removeFromParent()
         
         let breakEffect = SKEffectNode(fileNamed: "break")
@@ -128,6 +136,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ObservableObject {
     
     func fireHitEnemy(fireNode: SKSpriteNode, enemyNode: SKSpriteNode) {
         fireNode.removeFromParent()
+        player.playerNode.run(SKAction.playSoundFileNamed("mini_bomb1.mp3", waitForCompletion: false))
         enemyNode.removeFromParent()
         
         let explodeEffect = SKEmitterNode(fileNamed: "explode")
@@ -156,8 +165,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ObservableObject {
             player.level += 1
             upgrades = player.getUpgrade()
             invalidateTimers()
-            scene?.isPaused = true
-            showUpgradeView = true
+            if !autoUpgrade {
+                scene?.isPaused = true
+                showUpgradeView = true
+            } else {
+                upgrade(type: upgrades[0])
+            }
             upgradeExp = getUpgradeExp(level: player.level, alpha: upgradeAlpha)
         }
     }
@@ -221,6 +234,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ObservableObject {
             gameEnd = true
             isPaused = true
         }
+        
+        if zombieKilled >= 1000 && !infiniteMode {
+            gameFinish = true
+            isPaused = true
+        }
     }
     
     func loadConfig(config: [String: Double]) {
@@ -230,6 +248,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ObservableObject {
             }
             else if type == "upgradeAlpha" {
                 upgradeAlpha = config[type]!
+            }
+            else if type == "infinite" {
+                infiniteMode = config[type]! != 0.0
             }
         }
     }
@@ -251,6 +272,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ObservableObject {
         
         joystick.makeJoystick(scene: scene!)
         
+        player = PlayerCharacter(spriteName: "player", fireSpriteName: "bullet1")
         player.makePlayer(scene: scene!)
         fireTimer = .scheduledTimer(timeInterval: player.fireInterval, target: self, selector: #selector(playerFire), userInfo: nil, repeats: true)
         
@@ -262,6 +284,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ObservableObject {
         zombieKilled = 0
         upgradeExp = getUpgradeExp(level: player.level, alpha: upgradeAlpha)
         gameEnd = false
+        gameFinish = false
+        autoUpgrade = false
+        isPaused = false
+        
+        let bgm = SKAudioNode(fileNamed: "scifi.mp3")
+        bgm.autoplayLooped = true
+        addChild(bgm)
     }
     
     func invalidateTimers() {
@@ -277,6 +306,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, ObservableObject {
         setBegin()
         
         isPaused = false
+    }
+    
+    func checkEnd() {
+        if zombieKilled >= 1000 {
+            gameFinish = true
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
